@@ -1,4 +1,7 @@
+// routes
+import { PATH_DASHBOARD } from '../../../routes/paths';
 // components
+import Label from '../../../components/Label';
 import SvgIconStyle from '../../../components/SvgIconStyle';
 
 // ----------------------------------------------------------------------
@@ -6,41 +9,52 @@ import SvgIconStyle from '../../../components/SvgIconStyle';
 const getIcon = (name) => <SvgIconStyle src={`/icons/${name}.svg`} sx={{ width: 1, height: 1 }} />;
 
 const ICONS = {
+  blog: getIcon('ic_blog'),
+  cart: getIcon('ic_cart'),
+  chat: getIcon('ic_chat'),
+  mail: getIcon('ic_mail'),
   user: getIcon('ic_user'),
+  kanban: getIcon('ic_kanban'),
+  banking: getIcon('ic_banking'),
+  calendar: getIcon('ic_calendar'),
   ecommerce: getIcon('ic_ecommerce'),
   analytics: getIcon('ic_analytics'),
   dashboard: getIcon('ic_dashboard'),
+  booking: getIcon('ic_booking'),
 };
 
-const sidebarConfig = [
+const navConfig = [
   // GENERAL
   // ----------------------------------------------------------------------
   {
-    subheader: 'general v3.0.0',
-    items: [
-      { title: 'One', path: '/dashboard/one', icon: ICONS.dashboard },
-      { title: 'Two', path: '/dashboard/two', icon: ICONS.ecommerce },
-      { title: 'Three', path: '/dashboard/three', icon: ICONS.analytics },
-    ],
-  },
-
-  // MANAGEMENT
-  // ----------------------------------------------------------------------
-  {
-    subheader: 'management',
+    subheader: 'general',
     items: [
       {
-        title: 'user',
-        path: '/dashboard/user',
-        icon: ICONS.user,
-        children: [
-          { title: 'Four', path: '/dashboard/user/four' },
-          { title: 'Five', path: '/dashboard/user/five' },
-          { title: 'Six', path: '/dashboard/user/six' },
-        ],
+        title: 'app',
+        path: PATH_DASHBOARD.general.app,
+        icon: ICONS.dashboard,
       },
     ],
   },
+
+  // SETTINGS
+  // ----------------------------------------------------------------------
+  {
+    subheader: 'Settings',
+    items: [
+      {
+        title: 'user',
+        path: PATH_DASHBOARD.user.root,
+        icon: ICONS.user,
+        children: [
+          { title: 'profile', path: PATH_DASHBOARD.user.profile },
+        ],
+      },
+
+    ],
+  },
+
+
 ];
 
-export default sidebarConfig;
+export default navConfig;

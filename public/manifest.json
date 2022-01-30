@@ -1,6 +1,6 @@
 {
-  "name": "React Material Minimal UI",
-  "short_name": "Minimal-UI",
+  "name": "Facial Gender Expression detection",
+  "short_name": "FGED",
   "display": "standalone",
   "start_url": "/",
   "theme_color": "#000000",

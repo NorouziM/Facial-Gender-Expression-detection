@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 // @mui
 import { CssBaseline } from '@mui/material';
 import { createTheme, ThemeProvider as MUIThemeProvider } from '@mui/material/styles';
 // hooks
 import useSettings from '../hooks/useSettings';
+import useLocales from '../hooks/useLocales';
 //
 import palette from './palette';
 import typography from './typography';
@@ -19,7 +20,9 @@ ThemeProvider.propTypes = {
 };
 
 export default function ThemeProvider({ children }) {
-  const { themeMode, themeDirection } = useSettings();
+  const { themeMode, themeDirection, onChangeDirection } = useSettings();
+  const { currentLang } = useLocales();
+
   const isLight = themeMode === 'light';
 
   const themeOptions = useMemo(
@@ -32,11 +35,20 @@ export default function ThemeProvider({ children }) {
       shadows: isLight ? shadows.light : shadows.dark,
       customShadows: isLight ? customShadows.light : customShadows.dark,
     }),
-    [isLight, themeDirection]
+    [isLight, themeDirection, currentLang]
   );
 
   const theme = createTheme(themeOptions);
   theme.components = componentsOverride(theme);
+
+  useEffect(() => {
+    if(currentLang.value === 'fa') {
+      onChangeDirection('rtl');
+    } else {
+      onChangeDirection('ltr');
+
+    }
+  }, [currentLang]);
 
   return (
     <MUIThemeProvider theme={theme}>

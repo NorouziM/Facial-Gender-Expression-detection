@@ -27,18 +27,14 @@ export default class MyDocument extends Document {
           <meta name="theme-color" content={palette.light.primary.main} />
           <link rel="manifest" href="/manifest.json" />
 
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap"
-            rel="stylesheet"
-          />
+          <link rel="stylesheet" type="text/css" href="/fonts/index.css" />
 
           <meta
             name="description"
-            content="The starting point for your next project with Minimal UI Kit, built on the newest version of Material-UI ©, ready to be customized to your style"
+            content="Facial Gender Expression detection built on top of Next js and MUI"
           />
-          <meta name="keywords" content="react,material,kit,application,dashboard,admin,template" />
-          <meta name="author" content="Minimal UI Kit" />
+          <meta name="keywords" content="facial expression detection, react tensorflowm, react gender detection, tensoflowjs" />
+          <meta name="author" content="Mohammad Norouzi" />
         </Head>
 
         <body>

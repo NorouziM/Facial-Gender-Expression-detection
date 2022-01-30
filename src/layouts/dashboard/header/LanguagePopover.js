@@ -1,6 +1,8 @@
 import { useState } from 'react';
 // @mui
 import { MenuItem, Stack } from '@mui/material';
+// hooks
+import useLocales from '../../../hooks/useLocales';
 // components
 import Image from '../../../components/Image';
 import MenuPopover from '../../../components/MenuPopover';
@@ -8,27 +10,9 @@ import { IconButtonAnimate } from '../../../components/animate';
 
 // ----------------------------------------------------------------------
 
-const LANGS = [
-  {
-    label: 'English',
-    value: 'en',
-    icon: 'https://minimal-assets-api.vercel.app/assets/icons/ic_flag_en.svg',
-  },
-  {
-    label: 'German',
-    value: 'de',
-    icon: 'https://minimal-assets-api.vercel.app/assets/icons/ic_flag_de.svg',
-  },
-  {
-    label: 'French',
-    value: 'fr',
-    icon: 'https://minimal-assets-api.vercel.app/assets/icons/ic_flag_fr.svg',
-  },
-];
-
-// ----------------------------------------------------------------------
-
 export default function LanguagePopover() {
+  const { allLang, currentLang, onChangeLang } = useLocales();
+
   const [open, setOpen] = useState(null);
 
   const handleOpen = (event) => {
@@ -49,7 +33,7 @@ export default function LanguagePopover() {
           ...(open && { bgcolor: 'action.selected' }),
         }}
       >
-        <Image disabledEffect src={LANGS[0].icon} alt={LANGS[0].label} />
+        <Image disabledEffect src={currentLang.icon} alt={currentLang.label} />
       </IconButtonAnimate>
 
       <MenuPopover
@@ -64,8 +48,15 @@ export default function LanguagePopover() {
         }}
       >
         <Stack spacing={0.75}>
-          {LANGS.map((option) => (
-            <MenuItem key={option.value} selected={option.value === LANGS[0].value} onClick={handleClose}>
+          {allLang.map((option) => (
+            <MenuItem
+              key={option.value}
+              selected={option.value === currentLang.value}
+              onClick={() => {
+                onChangeLang(option.value);
+                handleClose();
+              }}
+            >
               <Image disabledEffect alt={option.label} src={option.icon} sx={{ width: 28, mr: 2 }} />
 
               {option.label}

@@ -50,7 +50,7 @@ function SettingsProvider({ children, defaultSettings = {} }) {
   const onChangeDirection = (event) => {
     setSettings({
       ...settings,
-      themeDirection: event.target.value,
+      themeDirection: event?.target?.value || event,
     });
   };
 
@@ -58,20 +58,6 @@ function SettingsProvider({ children, defaultSettings = {} }) {
     setSettings({
       ...settings,
       themeColorPresets: event.target.value,
-    });
-  };
-
-  const onChangeLayout = (event) => {
-    setSettings({
-      ...settings,
-      themeLayout: event.target.value,
-    });
-  };
-
-  const onToggleStretch = () => {
-    setSettings({
-      ...settings,
-      themeStretch: !settings.themeStretch,
     });
   };
 
@@ -101,10 +87,6 @@ function SettingsProvider({ children, defaultSettings = {} }) {
           name: color.name,
           value: color.main,
         })),
-        // Stretch
-        onToggleStretch,
-        // Navbar Horizontal
-        onChangeLayout,
         // Reset Setting
         onResetSetting,
       }}

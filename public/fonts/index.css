@@ -16,3 +16,26 @@
   font-style: normal;
   src: local('CircularStd'), url('CircularStd-Bold.otf') format('opentype');
 }
+@font-face {
+  font-family: 'YekanBakh';
+  font-weight: 400;
+  font-style: normal;
+  src: local('YekanBakh'), url('Yekan-Bakh-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'YekanBakh';
+  font-weight: 600;
+  font-style: normal;
+  src: local('YekanBakh'), url('Yekan-Bakh-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'YekanBakh';
+  font-weight: 800;
+  font-style: normal;
+  src: local('YekanBakh'), url('Yekan-Bakh-Fat.ttf') format('truetype');
+}
+
+* {
+  font-family: 'YekanBakh' !important;
+
+}
