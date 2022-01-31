@@ -30,9 +30,14 @@ const navConfig = [
     subheader: 'general',
     items: [
       {
+        title: 'home',
+        path: PATH_DASHBOARD.root,
+        icon: ICONS.dashboard,
+      },
+      {
         title: 'app',
         path: PATH_DASHBOARD.general.app,
-        icon: ICONS.dashboard,
+        icon: ICONS.analytics,
       },
     ],
   },
@@ -40,21 +45,15 @@ const navConfig = [
   // SETTINGS
   // ----------------------------------------------------------------------
   {
-    subheader: 'Settings',
+    subheader: 'User',
     items: [
       {
-        title: 'user',
-        path: PATH_DASHBOARD.user.root,
+        title: 'profile',
+        path: PATH_DASHBOARD.user.profile,
         icon: ICONS.user,
-        children: [
-          { title: 'profile', path: PATH_DASHBOARD.user.profile },
-        ],
       },
-
     ],
   },
-
-
 ];
 
 export default navConfig;

@@ -1,8 +1,13 @@
 import PropTypes from 'prop-types';
+// next
+import NextLink from 'next/link';
+import { useRouter } from 'next/router';
 // @mui
 import { styled } from '@mui/material/styles';
-import { Typography, Button, Card, CardContent } from '@mui/material';
-import { SeoIllustration } from '../../../../assets';
+import { Typography, LoadingButton, Card, CardContent } from '@mui/material';
+import { BookingIllustration } from '../../../../assets';
+import useLocales from 'src/hooks/useLocales';
+import { PATH_DASHBOARD } from 'src/routes/paths';
 
 // ----------------------------------------------------------------------
 
@@ -26,6 +31,9 @@ AppWelcome.propTypes = {
 };
 
 export default function AppWelcome({ displayName }) {
+  const { translate } = useLocales();
+  const { push } = useRouter();
+
   return (
     <RootStyle>
       <CardContent
@@ -36,17 +44,16 @@ export default function AppWelcome({ displayName }) {
         }}
       >
         <Typography gutterBottom variant="h4">
-          Welcome back,
+          {translate('welcome.title')}
           <br /> {!displayName ? '...' : displayName}!
         </Typography>
 
         <Typography variant="body1" sx={{ pb: { xs: 3, xl: 5 }, maxWidth: 520, mx: 'auto' }}>
-          {`If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything`}
+          {translate('welcome.description')}
         </Typography>
-
       </CardContent>
 
-      <SeoIllustration
+      <BookingIllustration
         sx={{
           p: 3,
           width: 360,

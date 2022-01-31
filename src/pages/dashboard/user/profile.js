@@ -69,7 +69,7 @@ export default function UserProfile() {
             position: 'relative',
           }}
         >
-          <ProfileCover myProfile={{position: "top", cover: "some"}} />
+          <ProfileCover myProfile={{position: user.phoneNumber, cover: "some"}} />
 
         </Card>
 

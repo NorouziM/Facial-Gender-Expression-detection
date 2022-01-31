@@ -10,10 +10,7 @@ import useAuth from '../hooks/useAuth';
 
 import { PATH_DASHBOARD, PATH_AUTH } from '../routes/paths';
 
-
-
 // ----------------------------------------------------------------------
-
 
 // ----------------------------------------------------------------------
 
@@ -27,13 +24,10 @@ export default function HomePage() {
   const { isAuthenticated } = useAuth();
   const { push } = useRouter();
 
-  useEffect(()=> {
-    if(!isAuthenticated)
-    push(PATH_AUTH.login);
-    else
-    push(PATH_DASHBOARD.general.app);
+  useEffect(() => {
+    if (!isAuthenticated) push(PATH_AUTH.login);
+    else push(PATH_DASHBOARD.root);
+  }, [isAuthenticated]);
 
-  }, [isAuthenticated])
-
-  return <></>
+  return <></>;
 }

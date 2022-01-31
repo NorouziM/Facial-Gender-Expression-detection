@@ -11,10 +11,7 @@ import Layout from '../../layouts';
 // components
 import Page from '../../components/Page';
 // sections
-import {
-  AppWelcome,
-
-} from '../../sections/@dashboard/general/app';
+import { AppWelcome } from '../../sections/@dashboard/general/app';
 
 // ----------------------------------------------------------------------
 
@@ -30,7 +27,6 @@ export default function GeneralApp() {
   const { themeStretch } = useSettings();
   const { currentLang } = useLocales();
 
-
   return (
     <Page title="General: App">
       <Container maxWidth={themeStretch ? false : 'xl'}>
@@ -38,10 +34,6 @@ export default function GeneralApp() {
           <Grid item xs={12} md={12}>
             <AppWelcome displayName={user?.displayName} />
           </Grid>
-
-    
-
-  
         </Grid>
       </Container>
     </Page>

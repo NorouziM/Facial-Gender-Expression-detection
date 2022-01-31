@@ -87,7 +87,7 @@ function AuthProvider({ children }) {
 
   const login = (email, password) => signInWithEmailAndPassword(AUTH, email, password);
 
-  const register = (email, password, firstName, lastName) =>
+  const register = ({email, password, firstName, lastName, phoneNumber}) =>
     createUserWithEmailAndPassword(AUTH, email, password).then(async (res) => {
       const userRef = doc(collection(DB, 'users'), res.user?.uid);
 
@@ -95,6 +95,7 @@ function AuthProvider({ children }) {
         uid: res.user?.uid,
         email,
         displayName: `${firstName} ${lastName}`,
+        phoneNumber
       });
     });
 

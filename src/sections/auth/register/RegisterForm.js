@@ -9,6 +9,7 @@ import { LoadingButton } from '@mui/lab';
 // hooks
 import useAuth from '../../../hooks/useAuth';
 import useIsMountedRef from '../../../hooks/useIsMountedRef';
+import useLocales from 'src/hooks/useLocales';
 // components
 import Iconify from '../../../components/Iconify';
 import { FormProvider, RHFTextField } from '../../../components/hook-form';
@@ -17,22 +18,25 @@ import { FormProvider, RHFTextField } from '../../../components/hook-form';
 
 export default function RegisterForm() {
   const { register } = useAuth();
+  const { translate } = useLocales();
 
   const isMountedRef = useIsMountedRef();
 
   const [showPassword, setShowPassword] = useState(false);
 
   const RegisterSchema = Yup.object().shape({
-    firstName: Yup.string().required('First name required'),
-    lastName: Yup.string().required('Last name required'),
-    email: Yup.string().email('Email must be a valid email address').required('Email is required'),
-    password: Yup.string().required('Password is required'),
+    firstName: Yup.string().required(translate('firstNameRequired')),
+    lastName: Yup.string().required(translate('lastNameRequired')),
+    email: Yup.string().email(translate('emailValid')).required(translate('emailRequired')),
+    phoneNumber: Yup.string().required(translate('phoneNumberRequired')),
+    password: Yup.string().required(translate('passwordRequired')),
   });
 
   const defaultValues = {
     firstName: '',
     lastName: '',
     email: '',
+    phoneNumber: '',
     password: '',
   };
 
@@ -43,7 +47,6 @@ export default function RegisterForm() {
 
   const {
     reset,
-
     setError,
     handleSubmit,
     formState: { errors, isSubmitting },
@@ -51,12 +54,11 @@ export default function RegisterForm() {
 
   const onSubmit = async (data) => {
     try {
-      await register(data.email, data.password, data.firstName, data.lastName);
+      await register(data);
     } catch (error) {
-      console.error(error);
       reset();
       if (isMountedRef.current) {
-        setError('afterSubmit', error);
+        setError('afterSubmit', error.customData._tokenResponse.error);
       }
     }
   };
@@ -67,15 +69,17 @@ export default function RegisterForm() {
         {!!errors.afterSubmit && <Alert severity="error">{errors.afterSubmit.message}</Alert>}
 
         <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
-          <RHFTextField name="firstName" label="First name" />
-          <RHFTextField name="lastName" label="Last name" />
+          <RHFTextField name="firstName" label={translate('firstName')} />
+          <RHFTextField name="lastName" label={translate('lastName')} />
         </Stack>
 
-        <RHFTextField name="email" label="Email address" />
+        <RHFTextField name="email" label={translate('email')} />
+
+        <RHFTextField name="phoneNumber" label={translate('phoneNumber')} />
 
         <RHFTextField
           name="password"
-          label="Password"
+          label={translate('password')}
           type={showPassword ? 'text' : 'password'}
           InputProps={{
             endAdornment: (
@@ -89,7 +93,7 @@ export default function RegisterForm() {
         />
 
         <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={isSubmitting}>
-          Register
+          {translate('register')}
         </LoadingButton>
       </Stack>
     </FormProvider>
