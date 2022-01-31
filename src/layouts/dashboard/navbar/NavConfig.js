@@ -1,7 +1,10 @@
 // routes
 import { PATH_DASHBOARD } from '../../../routes/paths';
+// trans
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+
 // components
-import Label from '../../../components/Label';
 import SvgIconStyle from '../../../components/SvgIconStyle';
 
 // ----------------------------------------------------------------------
@@ -45,7 +48,7 @@ const navConfig = [
   // SETTINGS
   // ----------------------------------------------------------------------
   {
-    subheader: 'User',
+    subheader: 'user',
     items: [
       {
         title: 'profile',

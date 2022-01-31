@@ -7,6 +7,7 @@ import { Box, Link, ListItemText } from '@mui/material';
 import Iconify from '../../Iconify';
 import { ListItemStyle, ListItemTextStyle, ListItemIconStyle } from './style';
 import { isExternalLink } from '..';
+import useLocales from 'src/hooks/useLocales';
 
 // ----------------------------------------------------------------------
 
@@ -26,14 +27,15 @@ NavItemRoot.propTypes = {
 
 export function NavItemRoot({ item, isCollapse, open = false, active, onOpen }) {
   const { title, path, icon, info, children } = item;
+  const { translate } = useLocales();
 
   const renderContent = (
     <>
       {icon && <ListItemIconStyle>{icon}</ListItemIconStyle>}
-      <ListItemTextStyle disableTypography primary={title} isCollapse={isCollapse} />
+      <ListItemTextStyle disableTypography primary={translate(title)} isCollapse={isCollapse} />
       {!isCollapse && (
         <>
-          {info && info}
+          {info && translate(title)}
           {children && <ArrowIcon open={open} />}
         </>
       )}

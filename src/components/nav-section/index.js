@@ -10,5 +10,5 @@ export function isExternalLink(path) {
 }
 
 export function getActive(path, pathname, asPath) {
-  return pathname.includes(path) || asPath.includes(path);
+  return pathname === path || asPath === path;
 }

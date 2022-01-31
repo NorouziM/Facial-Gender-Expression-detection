@@ -15,18 +15,19 @@ import useIsMountedRef from '../../../hooks/useIsMountedRef';
 import MyAvatar from '../../../components/MyAvatar';
 import MenuPopover from '../../../components/MenuPopover';
 import { IconButtonAnimate } from '../../../components/animate';
+import useLocales from 'src/hooks/useLocales';
 
 // ----------------------------------------------------------------------
 
 const MENU_OPTIONS = [
   {
-    label: 'Home',
+    label: 'home',
     linkTo: '/',
   },
   {
-    label: 'Profile',
+    label: 'profile',
     linkTo: PATH_DASHBOARD.user.profile,
-  }
+  },
 ];
 
 // ----------------------------------------------------------------------
@@ -35,6 +36,7 @@ export default function AccountPopover() {
   const router = useRouter();
 
   const { user, logout } = useAuth();
+  const { translate } = useLocales();
 
   const isMountedRef = useIsMountedRef();
 
@@ -115,7 +117,7 @@ export default function AccountPopover() {
           {MENU_OPTIONS.map((option) => (
             <NextLink key={option.label} href={option.linkTo} passHref>
               <MenuItem key={option.label} onClick={handleClose}>
-                {option.label}
+                {translate(option.label)}
               </MenuItem>
             </NextLink>
           ))}
@@ -124,7 +126,7 @@ export default function AccountPopover() {
         <Divider sx={{ borderStyle: 'dashed' }} />
 
         <MenuItem onClick={handleLogout} sx={{ m: 1 }}>
-          Logout
+          {translate('Logout')}
         </MenuItem>
       </MenuPopover>
     </>

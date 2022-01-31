@@ -30,11 +30,7 @@ export default function GeneralApp() {
   return (
     <Page title="General: App">
       <Container maxWidth={themeStretch ? false : 'xl'}>
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={12}>
-            <AppWelcome displayName={user?.displayName} />
-          </Grid>
-        </Grid>
+        <Grid container spacing={3}></Grid>
       </Container>
     </Page>
   );

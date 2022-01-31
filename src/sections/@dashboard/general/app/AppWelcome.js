@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 // next
 import NextLink from 'next/link';
-import { useRouter } from 'next/router';
 // @mui
 import { styled } from '@mui/material/styles';
-import { Typography, LoadingButton, Card, CardContent } from '@mui/material';
+import { LoadingButton } from '@mui/lab';
+import { Typography, Card, CardContent } from '@mui/material';
 import { BookingIllustration } from '../../../../assets';
 import useLocales from 'src/hooks/useLocales';
 import { PATH_DASHBOARD } from 'src/routes/paths';
@@ -32,8 +32,6 @@ AppWelcome.propTypes = {
 
 export default function AppWelcome({ displayName }) {
   const { translate } = useLocales();
-  const { push } = useRouter();
-
   return (
     <RootStyle>
       <CardContent
@@ -51,6 +49,11 @@ export default function AppWelcome({ displayName }) {
         <Typography variant="body1" sx={{ pb: { xs: 3, xl: 5 }, maxWidth: 520, mx: 'auto' }}>
           {translate('welcome.description')}
         </Typography>
+        <NextLink href={PATH_DASHBOARD.general.app}>
+          <LoadingButton size="normal" type="submit" variant="contained">
+            {translate('getStarted')}
+          </LoadingButton>
+        </NextLink>
       </CardContent>
 
       <BookingIllustration
