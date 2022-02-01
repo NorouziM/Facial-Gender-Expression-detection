@@ -16,7 +16,6 @@ const initialState = {
   onChangeColor: () => {},
   onToggleStretch: () => {},
   onChangeLayout: () => {},
-  onResetSetting: () => {},
   setColor: defaultPreset,
   colorOption: [],
 };
@@ -61,16 +60,6 @@ function SettingsProvider({ children, defaultSettings = {} }) {
     });
   };
 
-  const onResetSetting = () => {
-    setSettings({
-      themeMode: initialState.themeMode,
-      themeLayout: initialState.themeLayout,
-      themeStretch: initialState.themeStretch,
-      themeDirection: initialState.themeDirection,
-      themeColorPresets: initialState.themeColorPresets,
-    });
-  };
-
   return (
     <SettingsContext.Provider
       value={{
@@ -87,8 +76,6 @@ function SettingsProvider({ children, defaultSettings = {} }) {
           name: color.name,
           value: color.main,
         })),
-        // Reset Setting
-        onResetSetting,
       }}
     >
       {children}

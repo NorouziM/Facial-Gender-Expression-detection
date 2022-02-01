@@ -22,10 +22,10 @@ export default function NavbarDocs() {
           {translate('contactMe')}
         </Typography>
         <a href="https://github.com/NorouziM/" target="_blank">
-          <GitHubIcon fontSize="large" sx={{ mx: 2 }} />
+          <GitHubIcon fontSize="large" sx={{ mx: 2 }} color="primary" />
         </a>
         <a href="https://t.me/EP_MNT" target="_blank">
-          <TelegramIcon fontSize="large" sx={{ mx: 2 }} />
+          <TelegramIcon fontSize="large" sx={{ mx: 2 }} color="primary" />
         </a>
       </div>
     </Stack>

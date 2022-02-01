@@ -50,7 +50,6 @@ import { CollapseDrawerProvider } from '../contexts/CollapseDrawerContext';
 import ThemeProvider from '../theme';
 // components
 import Settings from '../components/settings';
-import { ChartStyle } from '../components/chart';
 import RtlLayout from '../components/RtlLayout';
 import ProgressBar from '../components/ProgressBar';
 import ThemeColorPresets from '../components/ThemeColorPresets';
@@ -59,7 +58,7 @@ import ThemeLocalization from '../components/ThemeLocalization';
 import MotionLazyContainer from '../components/animate/MotionLazyContainer';
 
 import { AuthProvider } from '../contexts/FirebaseContext';
-import IPLocationGuard from "../guards/IPLocationGuard"
+import IPLocationGuard from '../guards/IPLocationGuard';
 
 // ----------------------------------------------------------------------
 
@@ -80,8 +79,8 @@ export default function MyApp(props) {
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
       <IPLocationGuard>
-      <AuthProvider>
-        <ReduxProvider store={store}>
+        <AuthProvider>
+          <ReduxProvider store={store}>
             <LocalizationProvider dateAdapter={AdapterDateFns}>
               <CollapseDrawerProvider>
                 <SettingsProvider defaultSettings={settings}>
@@ -91,7 +90,6 @@ export default function MyApp(props) {
                         <ThemeColorPresets>
                           <ThemeLocalization>
                             <RtlLayout>
-                              <ChartStyle />
                               <Settings />
                               <ProgressBar />
                               {getLayout(<Component {...pageProps} />)}
@@ -104,8 +102,8 @@ export default function MyApp(props) {
                 </SettingsProvider>
               </CollapseDrawerProvider>
             </LocalizationProvider>
-        </ReduxProvider>
-      </AuthProvider>
+          </ReduxProvider>
+        </AuthProvider>
       </IPLocationGuard>
     </>
   );

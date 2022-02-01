@@ -26,5 +26,8 @@
   "itsFree": "It's All Free, Test it with no worries!",
   "contactMe":"Contact Me!",
   "home": "Home",
-  "profile": "Profile"
+  "profile": "Profile",
+  "settings": "Settings",
+  "changeAppMode": "Would you like to change the app mode?",
+  "logoutWarning": "Are you sure you want to logout?"
 }

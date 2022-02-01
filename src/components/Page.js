@@ -4,21 +4,26 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 // @mui
 import { Box } from '@mui/material';
+//hooks
+import useLocales from 'src/hooks/useLocales';
 
 // ----------------------------------------------------------------------
 
-const Page = forwardRef(({ children, title = '', meta, ...other }, ref) => (
-  <>
-    <Head>
-      <title>{`${title} | Minimal-UI`}</title>
-      {meta}
-    </Head>
+const Page = forwardRef(({ children, title = '', meta, ...other }, ref) => {
+  const { translate } = useLocales();
+  return (
+    <>
+      <Head>
+        <title>{`${translate(title)} | FGED`}</title>
+        {meta}
+      </Head>
 
-    <Box ref={ref} {...other}>
-      {children}
-    </Box>
-  </>
-));
+      <Box ref={ref} {...other}>
+        {children}
+      </Box>
+    </>
+  );
+});
 
 Page.propTypes = {
   children: PropTypes.node.isRequired,

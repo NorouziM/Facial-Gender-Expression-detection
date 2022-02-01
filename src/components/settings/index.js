@@ -6,6 +6,7 @@ import { alpha, styled } from '@mui/material/styles';
 import { Backdrop, Divider, Typography, Stack, FormControlLabel, Radio } from '@mui/material';
 // hooks
 import useSettings from '../../hooks/useSettings';
+import useLocales from '../../hooks/useLocales';
 // utils
 import cssStyles from '../../utils/cssStyles';
 // config
@@ -44,8 +45,9 @@ const RootStyle = styled(m.div)(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function Settings() {
-  const { themeMode, themeDirection, themeColorPresets, themeStretch, themeLayout, onResetSetting } = useSettings();
+  const { themeMode, themeDirection, themeColorPresets, themeStretch, themeLayout } = useSettings();
   const [open, setOpen] = useState(false);
+  const { translate } = useLocales();
 
   const notDefault =
     themeMode !== defaultSettings.themeMode ||
@@ -98,11 +100,8 @@ export default function Settings() {
           <>
             <RootStyle {...varSidebar}>
               <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ py: 2, pr: 1, pl: 2.5 }}>
-                <Typography variant="subtitle1">Settings</Typography>
+                <Typography variant="subtitle1">{translate('settings')}</Typography>
                 <div>
-                  <IconButtonAnimate onClick={onResetSetting}>
-                    <Iconify icon={'ic:round-refresh'} width={20} height={20} />
-                  </IconButtonAnimate>
                   <IconButtonAnimate onClick={handleClose}>
                     <Iconify icon={'eva:close-fill'} width={20} height={20} />
                   </IconButtonAnimate>
@@ -114,7 +113,7 @@ export default function Settings() {
               <Scrollbar sx={{ flexGrow: 1 }}>
                 <Stack spacing={3} sx={{ p: 3 }}>
                   <Stack spacing={1.5}>
-                    <Typography variant="subtitle2">Mode</Typography>
+                    <Typography variant="subtitle2">{translate('Mode')}</Typography>
                     <SettingMode />
                   </Stack>
 

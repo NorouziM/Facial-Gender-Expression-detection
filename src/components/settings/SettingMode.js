@@ -41,11 +41,7 @@ export default function SettingMode() {
                   }),
                 }}
               >
-                <Iconify
-                  icon={index === 0 ? 'ph:sun-duotone' : 'ph:moon-duotone'}
-                  width={28}
-                  height={28}
-                />
+                <Iconify icon={index === 0 ? 'ph:sun-duotone' : 'ph:moon-duotone'} width={28} height={28} />
                 <BoxMask value={mode} />
               </BoxStyle>
             </Grid>

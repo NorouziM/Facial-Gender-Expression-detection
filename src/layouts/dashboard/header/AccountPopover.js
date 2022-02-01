@@ -5,7 +5,7 @@ import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 // @mui
 import { alpha } from '@mui/material/styles';
-import { Box, Divider, Typography, Stack, MenuItem } from '@mui/material';
+import { Box, MenuItem, Stack, Button, DialogTitle, Divider, Typography, DialogActions, Dialog } from '@mui/material';
 // routes
 import { PATH_DASHBOARD, PATH_AUTH } from '../../../routes/paths';
 // hooks
@@ -43,6 +43,7 @@ export default function AccountPopover() {
   const { enqueueSnackbar } = useSnackbar();
 
   const [open, setOpen] = useState(null);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const handleOpen = (event) => {
     setOpen(event.currentTarget);
@@ -50,6 +51,10 @@ export default function AccountPopover() {
 
   const handleClose = () => {
     setOpen(null);
+  };
+
+  const handleCloseDialog = () => {
+    setIsDialogOpen(false);
   };
 
   const handleLogout = async () => {
@@ -125,10 +130,19 @@ export default function AccountPopover() {
 
         <Divider sx={{ borderStyle: 'dashed' }} />
 
-        <MenuItem onClick={handleLogout} sx={{ m: 1 }}>
+        <MenuItem onClick={() => setIsDialogOpen(true)} sx={{ m: 1 }}>
           {translate('Logout')}
         </MenuItem>
       </MenuPopover>
+      <Dialog open={isDialogOpen} onClose={handleCloseDialog}>
+        <DialogTitle>{translate('logoutWarning')}</DialogTitle>
+        <DialogActions sx={{ justifyContent: 'space-between' }}>
+          <Button onClick={handleCloseDialog}>{translate('No')} </Button>
+          <Button onClick={handleLogout} autoFocus>
+            {translate('Yes')}
+          </Button>
+        </DialogActions>
+      </Dialog>
     </>
   );
 }

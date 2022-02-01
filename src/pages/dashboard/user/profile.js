@@ -2,7 +2,7 @@ import { capitalCase } from 'change-case';
 import { useState } from 'react';
 // @mui
 import { styled } from '@mui/material/styles';
-import { Tab, Box, Card, Tabs, Container } from '@mui/material';
+import { Card, Container } from '@mui/material';
 // routes
 import { PATH_DASHBOARD } from '../../../routes/paths';
 // hooks
@@ -12,14 +12,9 @@ import useSettings from '../../../hooks/useSettings';
 import Layout from '../../../layouts';
 // components
 import Page from '../../../components/Page';
-import Iconify from '../../../components/Iconify';
 import HeaderBreadcrumbs from '../../../components/HeaderBreadcrumbs';
 // sections
-import {
-  
-  ProfileCover,
-
-} from '../../../sections/@dashboard/user/profile';
+import { ProfileCover } from '../../../sections/@dashboard/user/profile';
 
 // ----------------------------------------------------------------------
 
@@ -69,11 +64,8 @@ export default function UserProfile() {
             position: 'relative',
           }}
         >
-          <ProfileCover myProfile={{position: user.phoneNumber, cover: "some"}} />
-
+          <ProfileCover myProfile={{ cover: 'some' }} />
         </Card>
-
-        
       </Container>
     </Page>
   );

@@ -4,11 +4,14 @@ import { alpha } from '@mui/material/styles';
 import { Button } from '@mui/material';
 // components
 import Iconify from '../Iconify';
+//hooks
+import useLocales from 'src/hooks/useLocales';
 
 // ----------------------------------------------------------------------
 
 export default function SettingFullscreen() {
   const [fullscreen, setFullscreen] = useState(false);
+  const { translate } = useLocales();
 
   const toggleFullScreen = () => {
     if (!document.fullscreenElement) {
@@ -35,7 +38,7 @@ export default function SettingFullscreen() {
         }),
       }}
     >
-      {fullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
+      {fullscreen ? translate('Exit Fullscreen') : translate('Fullscreen')}
     </Button>
   );
 }

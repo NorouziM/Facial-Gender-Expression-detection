@@ -39,8 +39,9 @@ export default function cssStyles(theme) {
     bgImage: (props) => {
       const url = props?.url || 'https://minimal-assets-api.vercel.app/assets/images/bg_gradient.jpg';
       const direction = getDirection(props?.direction);
-      const startColor = props?.startColor || alpha(theme?.palette.grey[900] || '#000000', 0.88);
-      const endColor = props?.endColor || alpha(theme?.palette.grey[900] || '#000000', 0.88);
+      const startColor =
+        props?.startColor || alpha(theme?.palette.grey[900] || '#000000', props.bgColorOpacity || 0.58);
+      const endColor = props?.endColor || alpha(theme?.palette.grey[900] || '#000000', props.bgColorOpacity || 0.58);
 
       return {
         background: `linear-gradient(${direction}, ${startColor}, ${endColor}), url(${url})`,
