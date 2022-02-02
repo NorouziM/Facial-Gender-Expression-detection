@@ -1,7 +1,7 @@
 {
-  "name": "@minimal/material-kit-nextjs",
-  "author": "minimals.cc",
-  "version": "3.0.0",
+  "name": "Facial Gender Expression detection",
+  "author": "Mohammad Norouzi",
+  "version": "1.0.0",
   "description": "Next.Js Javascript Version",
   "private": true,
   "scripts": {
