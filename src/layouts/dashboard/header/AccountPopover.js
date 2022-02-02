@@ -11,11 +11,11 @@ import { PATH_DASHBOARD, PATH_AUTH } from '../../../routes/paths';
 // hooks
 import useAuth from '../../../hooks/useAuth';
 import useIsMountedRef from '../../../hooks/useIsMountedRef';
+import useLocales from '../../../hooks/useLocales';
 // components
 import MyAvatar from '../../../components/MyAvatar';
 import MenuPopover from '../../../components/MenuPopover';
 import { IconButtonAnimate } from '../../../components/animate';
-import useLocales from 'src/hooks/useLocales';
 
 // ----------------------------------------------------------------------
 
@@ -66,7 +66,6 @@ export default function AccountPopover() {
         handleClose();
       }
     } catch (error) {
-      console.error(error);
       enqueueSnackbar('Unable to logout!', { variant: 'error' });
     }
   };

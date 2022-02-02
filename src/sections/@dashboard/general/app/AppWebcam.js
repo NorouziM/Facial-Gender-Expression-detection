@@ -1,20 +1,7 @@
-import PropTypes from 'prop-types';
-import { useEffect, useRef, useState } from 'react';
-// @mui
-import { styled } from '@mui/material/styles';
-import { LoadingButton } from '@mui/lab';
-import { Typography, Stack, CardContent, Hidden } from '@mui/material';
-import { BookingIllustration } from '../../../../assets';
 // hooks
-import useLocales from 'src/hooks/useLocales';
+import useFaceapi from '../../../../hooks/useFaceapi';
 // components
 import Webcam from 'react-webcam';
-// config
-import { PATH_DASHBOARD } from 'src/routes/paths';
-import useFaceapi from 'src/hooks/useFaceapi';
-
-// ----------------------------------------------------------------------
-
 // ----------------------------------------------------------------------
 
 const videoConstraints = {

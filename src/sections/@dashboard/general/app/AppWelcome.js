@@ -6,8 +6,10 @@ import { styled } from '@mui/material/styles';
 import { LoadingButton } from '@mui/lab';
 import { Typography, Card, CardContent } from '@mui/material';
 import { BookingIllustration } from '../../../../assets';
-import useLocales from 'src/hooks/useLocales';
-import { PATH_DASHBOARD } from 'src/routes/paths';
+//hooks
+import useLocales from '../../../../hooks/useLocales';
+// config
+import { PATH_DASHBOARD } from '../../../../routes/paths';
 
 // ----------------------------------------------------------------------
 

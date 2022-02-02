@@ -1,6 +1,7 @@
 // @mui
 import { Box, Typography, Stack } from '@mui/material';
-import useLocales from 'src/hooks/useLocales';
+// hooks
+import useLocales from '../../hooks/useLocales';
 // assets
 import { UploadIllustration } from '../../assets';
 

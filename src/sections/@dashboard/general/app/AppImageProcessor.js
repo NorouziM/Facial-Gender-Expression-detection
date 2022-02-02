@@ -1,15 +1,11 @@
 import PropTypes from 'prop-types';
-import { useEffect, useRef, useState } from 'react';
 // @mui
 import CircularProgress from '@mui/material/CircularProgress';
-import { LoadingButton } from '@mui/lab';
-import { Typography, Stack, CardContent, Hidden } from '@mui/material';
-import { BookingIllustration } from '../../../../assets';
+import { Stack } from '@mui/material';
 // next
 import Image from 'next/image';
-// config
-import useFaceapi from 'src/hooks/useFaceapi';
-import cssStyles from 'src/utils/cssStyles';
+// hooka
+import useFaceapi from '../../../../hooks/useFaceapi';
 
 // ----------------------------------------------------------------------
 

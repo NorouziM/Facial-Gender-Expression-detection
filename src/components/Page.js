@@ -5,7 +5,7 @@ import Head from 'next/head';
 // @mui
 import { Box } from '@mui/material';
 //hooks
-import useLocales from 'src/hooks/useLocales';
+import useLocales from '../hooks/useLocales';
 
 // ----------------------------------------------------------------------
 

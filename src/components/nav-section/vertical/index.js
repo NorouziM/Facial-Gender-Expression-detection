@@ -4,7 +4,7 @@ import { styled } from '@mui/material/styles';
 import { List, Box, ListSubheader } from '@mui/material';
 //
 import { NavListRoot } from './NavList';
-import useLocales from 'src/hooks/useLocales';
+import useLocales from '../../../hooks/useLocales';
 
 // ----------------------------------------------------------------------
 

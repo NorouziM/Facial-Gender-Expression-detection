@@ -9,7 +9,7 @@ import { LoadingButton } from '@mui/lab';
 // hooks
 import useAuth from '../../../hooks/useAuth';
 import useIsMountedRef from '../../../hooks/useIsMountedRef';
-import useLocales from 'src/hooks/useLocales';
+import useLocales from '../../../hooks/useLocales';
 // components
 import Iconify from '../../../components/Iconify';
 import { FormProvider, RHFTextField } from '../../../components/hook-form';

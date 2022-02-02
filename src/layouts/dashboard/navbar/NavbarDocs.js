@@ -1,12 +1,11 @@
 // @mui
-import { Stack, Button, Typography } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 // hooks
-import useAuth from '../../../hooks/useAuth';
+import useLocales from '../../../hooks/useLocales';
 // ICON
 import GitHubIcon from '@mui/icons-material/GitHub';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import { DocIllustration } from '../../../assets';
-import useLocales from 'src/hooks/useLocales';
 
 // ----------------------------------------------------------------------
 

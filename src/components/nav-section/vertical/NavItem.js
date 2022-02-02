@@ -7,7 +7,7 @@ import { Box, Link, ListItemText } from '@mui/material';
 import Iconify from '../../Iconify';
 import { ListItemStyle, ListItemTextStyle, ListItemIconStyle } from './style';
 import { isExternalLink } from '..';
-import useLocales from 'src/hooks/useLocales';
+import useLocales from '../../../hooks/useLocales';
 
 // ----------------------------------------------------------------------
 

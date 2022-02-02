@@ -5,7 +5,7 @@ import { Button } from '@mui/material';
 // components
 import Iconify from '../Iconify';
 //hooks
-import useLocales from 'src/hooks/useLocales';
+import useLocales from '../../hooks/useLocales';
 
 // ----------------------------------------------------------------------
 

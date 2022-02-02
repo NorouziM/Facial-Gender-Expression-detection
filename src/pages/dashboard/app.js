@@ -1,25 +1,19 @@
 import { useEffect, useState } from 'react';
 // @mui
-import { useTheme } from '@mui/material/styles';
 import { Container, Grid, Stack, Button, DialogTitle, Switch, Typography, DialogActions, Dialog } from '@mui/material';
 import ChangeCircleIcon from '@mui/icons-material/ChangeCircle';
 import SettingsBackupRestoreIcon from '@mui/icons-material/SettingsBackupRestore';
 // hooks
-import useAuth from '../../hooks/useAuth';
 import useSettings from '../../hooks/useSettings';
 import useLocales from '../../hooks/useLocales';
-
 // layouts
 import Layout from '../../layouts';
 // components
 import Page from '../../components/Page';
-import Image from '../../components/Image';
-// utils
-import cssStyles from 'src/utils/cssStyles';
+import { RHFUploadSingleFile } from '../../components/hook-form';
 // sections
-import { RHFUploadSingleFile } from 'src/components/hook-form';
-import AppWebcam from 'src/sections/@dashboard/general/app/AppWebcam';
-import AppImageProcessor from 'src/sections/@dashboard/general/app/AppImageProcessor';
+import AppWebcam from '../../sections/@dashboard/general/app/AppWebcam';
+import AppImageProcessor from '../../sections/@dashboard/general/app/AppImageProcessor';
 
 // ----------------------------------------------------------------------
 
