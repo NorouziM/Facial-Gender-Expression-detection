@@ -8,6 +8,7 @@ import { Box } from '@mui/material';
 import Image from '../Image';
 import RejectionFiles from './RejectionFiles';
 import BlockContent from './BlockContent';
+import { useEffect } from 'react';
 
 // ----------------------------------------------------------------------
 
@@ -32,11 +33,15 @@ UploadSingleFile.propTypes = {
   sx: PropTypes.object,
 };
 
-export default function UploadSingleFile({ error = false, file, helperText, sx, ...other }) {
-  const { getRootProps, getInputProps, isDragActive, isDragReject, fileRejections } = useDropzone({
+export default function UploadSingleFile({ error = false, file, helperText, sx, setFile, ...other }) {
+  const { getRootProps, getInputProps, isDragActive, isDragReject, fileRejections, acceptedFiles } = useDropzone({
     multiple: false,
     ...other,
   });
+
+  useEffect(() => {
+    setFile(acceptedFiles);
+  }, [acceptedFiles]);
 
   return (
     <Box sx={{ width: '100%', ...sx }}>

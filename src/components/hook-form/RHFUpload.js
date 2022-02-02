@@ -12,7 +12,7 @@ RHFUploadSingleFile.propTypes = {
   name: PropTypes.string,
 };
 
-export function RHFUploadSingleFile({ name, ...other }) {
+export function RHFUploadSingleFile({ name, setFile, ...other }) {
   const { control } = useForm({});
 
   return (
@@ -27,6 +27,7 @@ export function RHFUploadSingleFile({ name, ...other }) {
             accept="image/*"
             file={field.value}
             error={checkError}
+            setFile={setFile}
             helperText={
               checkError && (
                 <FormHelperText error sx={{ px: 2 }}>
