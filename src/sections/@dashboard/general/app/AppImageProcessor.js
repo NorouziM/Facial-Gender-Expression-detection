@@ -2,8 +2,6 @@ import PropTypes from 'prop-types';
 // @mui
 import CircularProgress from '@mui/material/CircularProgress';
 import { Stack } from '@mui/material';
-// next
-import Image from 'next/image';
 // hooka
 import useFaceapi from '../../../../hooks/useFaceapi';
 

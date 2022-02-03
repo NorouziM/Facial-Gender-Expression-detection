@@ -1,5 +1,8 @@
 // hooks
 import useFaceapi from '../../../../hooks/useFaceapi';
+// @mui
+import { Stack } from '@mui/material';
+import CircularProgress from '@mui/material/CircularProgress';
 // components
 import Webcam from 'react-webcam';
 // ----------------------------------------------------------------------
@@ -11,7 +14,7 @@ const videoConstraints = {
 };
 
 export default function AppWebcam() {
-  const { sourceRef, canvasRef, canvasParentRef } = useFaceapi();
+  const { sourceRef, canvasRef, canvasParentRef, isLoading } = useFaceapi();
 
   return (
     <Stack justifyContent={'center'} sx={{ height: '100%', position: 'relative' }}>
@@ -24,6 +27,11 @@ export default function AppWebcam() {
         height={'100%'}
         width={'100%'}
       />
+      {isLoading && (
+        <div style={{ display: 'flex', justifyContent: 'center', position: 'absolute', width: '100%' }}>
+          <CircularProgress color="primary" size={60} />
+        </div>
+      )}
       {/* canvas */}
       <div
         ref={canvasParentRef}
