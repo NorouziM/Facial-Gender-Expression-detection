@@ -29,8 +29,8 @@ export default function IPLocationGuard({ children }) {
   return <>{children}</>;
 }
 
-const getCountryCode = async (ip) => {
-  const response = await axios.post('http://ip-api.com/json/');
+const getCountryCode = async () => {
+  const response = await axios.get('https://api.ipgeolocation.io/ipgeo?apiKey=08354ca984314c48ba14db8246c41c38');
 
-  return response.data.countryCode;
+  return response.data.country_code2;
 };
