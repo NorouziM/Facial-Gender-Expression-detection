@@ -13,13 +13,6 @@ import 'react-image-lightbox/style.css';
 // map
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-// editor
-import 'react-quill/dist/quill.snow.css';
-
-// slick-carousel
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-
 // lazy image
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
@@ -34,13 +27,9 @@ import cookie from 'cookie';
 // next
 import Head from 'next/head';
 import App from 'next/app';
-//
-import { Provider as ReduxProvider } from 'react-redux';
 // @mui
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
-// redux
-import { store } from '../redux/store';
 // utils
 import { getSettings } from '../utils/settings';
 // contexts
@@ -80,29 +69,27 @@ export default function MyApp(props) {
       </Head>
       <IPLocationGuard>
         <AuthProvider>
-          <ReduxProvider store={store}>
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
-              <CollapseDrawerProvider>
-                <SettingsProvider defaultSettings={settings}>
-                  <ThemeProvider>
-                    <NotistackProvider>
-                      <MotionLazyContainer>
-                        <ThemeColorPresets>
-                          <ThemeLocalization>
-                            <RtlLayout>
-                              <Settings />
-                              <ProgressBar />
-                              {getLayout(<Component {...pageProps} />)}
-                            </RtlLayout>
-                          </ThemeLocalization>
-                        </ThemeColorPresets>
-                      </MotionLazyContainer>
-                    </NotistackProvider>
-                  </ThemeProvider>
-                </SettingsProvider>
-              </CollapseDrawerProvider>
-            </LocalizationProvider>
-          </ReduxProvider>
+          <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <CollapseDrawerProvider>
+              <SettingsProvider defaultSettings={settings}>
+                <ThemeProvider>
+                  <NotistackProvider>
+                    <MotionLazyContainer>
+                      <ThemeColorPresets>
+                        <ThemeLocalization>
+                          <RtlLayout>
+                            <Settings />
+                            <ProgressBar />
+                            {getLayout(<Component {...pageProps} />)}
+                          </RtlLayout>
+                        </ThemeLocalization>
+                      </ThemeColorPresets>
+                    </MotionLazyContainer>
+                  </NotistackProvider>
+                </ThemeProvider>
+              </SettingsProvider>
+            </CollapseDrawerProvider>
+          </LocalizationProvider>
         </AuthProvider>
       </IPLocationGuard>
     </>
